@@ -6,8 +6,8 @@ const GastosContext = createContext();
 const GastosProvider = ({ children }) => {
   const [categoriesList, setCategoryList] = useState([
     {
-      email: "user@gmail.com",
-      password: "user123",
+      email: "erika@gmail.com",
+      password: "erika",
       categoriesList: [
         {
           value: 20,
@@ -32,8 +32,8 @@ const GastosProvider = ({ children }) => {
       dailyLimit: 100,
     },
     {
-      email: "user2@gmail.com",
-      password: "user2123",
+      email: "maria@gmail.com",
+      password: "maria",
       categoriesList: [
         {
           value: 0,
@@ -56,6 +56,84 @@ const GastosProvider = ({ children }) => {
       ],
       initial: 400,
       dailyLimit: 50,
+    },
+    {
+      email: "jhonny@gmail.com",
+      password: "jhonny",
+      categoriesList: [
+        {
+          value: 0,
+          color: "#A5F279",
+          percent: 0,
+          name: "Alimentacion",
+        },
+        {
+          value: 0,
+          color: "#966FD6",
+          percent: 0,
+          name: "Transporte",
+        },
+        {
+          value: 0,
+          color: "#779ECB",
+          percent: 0,
+          name: "Estudios",
+        },
+      ],
+      initial: 400,
+      dailyLimit: 20,
+    },
+    {
+      email: "jhonatan@gmail.com",
+      password: "jhonatan",
+      categoriesList: [
+        {
+          value: 0,
+          color: "#A5F279",
+          percent: 0,
+          name: "Alimentacion",
+        },
+        {
+          value: 0,
+          color: "#966FD6",
+          percent: 0,
+          name: "Transporte",
+        },
+        {
+          value: 0,
+          color: "#779ECB",
+          percent: 0,
+          name: "Estudios",
+        },
+      ],
+      initial: 200,
+      dailyLimit: 150,
+    },
+    {
+      email: "lizbeth@gmail.com",
+      password: "lizbeth",
+      categoriesList: [
+        {
+          value: 0,
+          color: "#A5F279",
+          percent: 0,
+          name: "Alimentacion",
+        },
+        {
+          value: 0,
+          color: "#966FD6",
+          percent: 0,
+          name: "Transporte",
+        },
+        {
+          value: 0,
+          color: "#779ECB",
+          percent: 0,
+          name: "Estudios",
+        },
+      ],
+      initial: 400,
+      dailyLimit: 200,
     },
   ]);
 
