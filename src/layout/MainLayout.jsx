@@ -28,7 +28,8 @@ import PeopleIcon from "@mui/icons-material/People";
 
 import HomeIcon from "@mui/icons-material/Home";
 
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { GastosContext } from "../context/GastosContext";
 
 const drawerWidth = 240;
 
@@ -88,6 +89,16 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const navigate = useNavigate();
+
+  const { userLogged } = React.useContext(GastosContext);
+
+  React.useEffect(() => {
+    if (userLogged.email === "") {
+      navigate("/");
+    }
+  }, [navigate, userLogged]);
 
   return (
     <Box sx={{ display: "flex" }}>

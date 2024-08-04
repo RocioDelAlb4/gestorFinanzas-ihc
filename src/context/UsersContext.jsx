@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 
-const GastosContext = createContext();
+const UserContext = createContext();
 
-const GastosProvider = ({ children }) => {
-  const [categoriesList, setCategoryList] = useState([
+const UserProvider = ({ children }) => {
+  const [usersList, setUsersList] = useState([
     {
-      email: "user@gmail.com",
+      name: "user@gmail.com",
       password: "user123",
-      categoriesList: [
+      categoryList: [
         {
-          value: 20,
+          value: 0,
           color: "#A5F279",
-          percent: 20,
+          percent: 0,
           name: "Alimentacion",
         },
         {
@@ -31,9 +31,9 @@ const GastosProvider = ({ children }) => {
       dailyLimit: 100,
     },
     {
-      email: "user2@gmail.com",
+      name: "user2@gmail.com",
       password: "user2123",
-      categoriesList: [
+      categoryList: [
         {
           value: 0,
           color: "#A5F279",
@@ -53,36 +53,12 @@ const GastosProvider = ({ children }) => {
           name: "Estudios",
         },
       ],
-      initial: 400,
-      dailyLimit: 50,
+      initial: 500,
+      dailyLimit: 100,
     },
   ]);
 
-  const [userLogged, setUserLogged] = useState({
-    email: "",
-    password: "",
-    categoriesList: [],
-    initial: 0,
-    dailyLimit: 0,
-  });
-
-  // const [userLogged, setUserLogged] = useState(null);
-
-  const [initial, setInitial] = useState(500);
-
-  return (
-    <GastosContext.Provider
-      value={{
-        categoriesList,
-        setCategoryList,
-        initial,
-        userLogged,
-        setUserLogged,
-      }}
-    >
-      {children}
-    </GastosContext.Provider>
-  );
+  return <GastosContext.Provider value={{}}>{children}</GastosContext.Provider>;
 };
 
-export { GastosContext, GastosProvider };
+export { UserContext, UserProvider };

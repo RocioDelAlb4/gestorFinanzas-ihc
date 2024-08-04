@@ -29,15 +29,17 @@ import { GastosContext } from "../context/GastosContext";
 // const initial = 500;
 
 export const ReportsPage = () => {
-  const { categoriesList, initial } = useContext(GastosContext);
+  const { userLogged } = useContext(GastosContext);
 
   return (
     <div className="container">
       <div className="header-page">
         <h1 className="h1-mod">Reportes de hoy</h1>
+        <p className="thin-text">Limite diario: {userLogged.dailyLimit} Bs.</p>
       </div>
+
       <div className="reports-bar">
-        {categoriesList.map((element, index) => (
+        {userLogged.categoriesList.map((element, index) => (
           <div
             key={index}
             style={{

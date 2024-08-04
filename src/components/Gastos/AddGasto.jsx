@@ -21,8 +21,8 @@ import "./styles.css";
 export const AddGasto = ({
   onClose,
   children,
-  categoriesList,
-  setCategoryList,
+  userLogged,
+  setUserLogged,
   initial,
 }) => {
   const [showError, setShowError] = useState(false);
@@ -56,25 +56,12 @@ export const AddGasto = ({
   };
 
   const onSubmit = () => {
-    // const found = categoriesList.find(
-    //   (element) => element.name.toLowerCase() === data.name.toLowerCase()
-    // );
-    // console.log("🚀 ~ onSubmit ~ found:", found);
-    // if (found !== undefined) {
-    //   setShowError(true);
-    // } else {
-    // }
-    // const newData = [
-    //   ...categoriesList,
-    //   { name: data.name, price: data.price, category: data.category },
-    // ];
-    // setCategoryList(newData);
     if (
       data.name.trim() !== "" &&
       data.price !== 0 &&
       categorySelected.trim() !== ""
     ) {
-      const categoryFound = categoriesList.find(
+      const categoryFound = userLogged.categoriesList.find(
         (element) => element.name === data.category
       );
 
@@ -88,15 +75,20 @@ export const AddGasto = ({
           percent: newPercent,
         };
 
-        const newList = categoriesList.filter(
+        const newList = userLogged.categoriesList.filter(
           (element) => element.name !== data.category
         );
+
+        const actualUser = {
+          ...userLogged,
+          categoriesList: [...newList, updatedCategory],
+        };
 
         setErrorState("success");
         setMessage("Se ha agregado el gasto");
         setOpen(true);
 
-        setCategoryList([...newList, updatedCategory]);
+        setUserLogged(actualUser);
         setData({ name: "", price: 0, category: "" });
         setCategorySelected("");
       } else {
@@ -177,7 +169,7 @@ export const AddGasto = ({
                 label="Categoria"
                 onChange={handleChange}
               >
-                {categoriesList.map((element, index) => (
+                {userLogged.categoriesList.map((element, index) => (
                   <MenuItem
                     key={index}
                     value={element.name}
