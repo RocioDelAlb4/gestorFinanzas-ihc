@@ -1,6 +1,6 @@
 import * as React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import "./index.css"; 
+import "./index.css";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -93,11 +93,11 @@ export default function PersistentDrawerLeft() {
 
   const { userLogged } = React.useContext(GastosContext);
 
-  React.useEffect(() => {
-    if (userLogged.email === "") {
-      navigate("/");
-    }
-  }, [navigate, userLogged]);
+  // React.useEffect(() => {
+  //   if (userLogged.email === "") {
+  //     navigate("/");
+  //   }
+  // }, [navigate, userLogged]);
 
   return (
     <Box sx={{ display: "flex" }}>

@@ -7,6 +7,16 @@
   box-sizing: border-box;
   gap: 5em;
 }
+.container-page-mod {
+  //margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  margin-top: 50px;
+  height: 90vh;
+  box-sizing: border-box;
+  gap: 5em;
+}
 
 .container {
   margin-top: 60px;
