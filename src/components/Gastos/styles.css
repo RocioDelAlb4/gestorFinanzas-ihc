@@ -1,0 +1,59 @@
+.input-label {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+  min-width: 15em;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  width: auto;
+  justify-content: center;
+}
+
+/* Pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+  .btn-primary {
+    width: 400px;
+    height: 50px;
+    font-size: 28px;
+  }
+}
+
+.header-page {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+/* Pantallas pequeñas (teléfonos móviles, etc.) */
+@media (max-width: 360px) {
+  .header-page {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .btn-primary {
+    width: 300px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    width: auto;
+    justify-content: center;
+  }
+
+  .input-label {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}

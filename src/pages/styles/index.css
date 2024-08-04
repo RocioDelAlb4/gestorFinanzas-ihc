@@ -1,0 +1,114 @@
+#bar {
+  display: flex;
+  gap: 0.9em;
+  flex-direction: column;
+}
+
+#percentage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.next-to-bar-left {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  width: 15em;
+}
+
+.next-to-bar-right {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: 17em;
+}
+
+.bold-text {
+  margin: 0;
+}
+
+.thin-text {
+  margin: 0;
+}
+
+.btn-div{
+    display: flex;
+    flex-direction row;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.description-div{
+    display:flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+}
+.bar-container{
+    display:flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.progress-bar{
+    border-radius: 10px !important;
+    height: 81px !important;
+    min-width: 23em !important;
+}
+
+.description-item{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    
+    p{
+        margin:0px;
+    }
+}
+
+.reports-bar{
+  display:flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+@media (max-width: 360px) {
+    .container-page{
+        /* width:25em; */
+    }
+    .description-div{
+        display:flex;
+        flex-direction: column;
+        gap: 0em;
+        margin: 0em;
+       // align-items: center;
+    }
+    .progress-bar{
+        border-radius: 10px !important;
+        height: 2.5em !important;
+        min-width: 20em !important;
+    }
+
+    .bar-container{
+        display:flex;
+        flex-direction: column;
+        //gap: 1em;
+    }
+
+    .next-to-bar-left {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        width: 15em;
+      }
+      
+      .next-to-bar-right {
+        display: flex;
+        flex-direction: column;
+        text-align: end;
+        width: 20em;
+      }
+    
+  }
+  

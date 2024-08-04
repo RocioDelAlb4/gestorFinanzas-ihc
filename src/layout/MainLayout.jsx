@@ -93,7 +93,7 @@ export default function PersistentDrawerLeft() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar sx={{ background: "#254EDB" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -103,7 +103,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h5" noWrap component="div">
             Gestion de gastos
           </Typography>
         </Toolbar>

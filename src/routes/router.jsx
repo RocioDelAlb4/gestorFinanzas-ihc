@@ -1,7 +1,7 @@
 // router.jsx
 import React, { Children } from "react";
 import MainLayout from "../layout/MainLayout.jsx"; // Asegúrate de que la ruta es correcta
-import App from "../App.jsx";
+
 import {
   AdvicesPage,
   CategoriesPage,
