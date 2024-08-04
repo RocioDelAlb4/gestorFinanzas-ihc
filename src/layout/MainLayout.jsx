@@ -93,11 +93,11 @@ export default function PersistentDrawerLeft() {
 
   const { userLogged } = React.useContext(GastosContext);
 
-  // React.useEffect(() => {
-  //   if (userLogged.email === "") {
-  //     navigate("/");
-  //   }
-  // }, [navigate, userLogged]);
+  React.useEffect(() => {
+    if (userLogged.email === "") {
+      navigate("/");
+    }
+  }, [navigate, userLogged]);
 
   return (
     <Box sx={{ display: "flex" }}>

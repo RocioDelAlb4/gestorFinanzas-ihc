@@ -14,13 +14,7 @@ export const HomePage = () => {
 
   const [showAddGasto, setShowAddGasto] = useState(false);
 
-  const {
-    categoriesList,
-    setCategoryList,
-    initial,
-    userLogged,
-    setUserLogged,
-  } = useContext(GastosContext);
+  const { userLogged, setUserLogged } = useContext(GastosContext);
 
   useEffect(() => {
     const totalAux = userLogged.categoriesList.reduce(

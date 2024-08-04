@@ -21,6 +21,7 @@ import "./styles.css";
 export const AddGasto = ({
   onClose,
   children,
+  categories,
   userLogged,
   setUserLogged,
   initial,
