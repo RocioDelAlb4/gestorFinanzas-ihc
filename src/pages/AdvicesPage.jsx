@@ -32,7 +32,7 @@ export const AdvicesPage = () => {
   };
   return (
   <div>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ marginTop: 6 }}>
       {consejos.map((consejo) => (
         <Grid item xs={12} sm={6} md={4} key={consejo.id}>
           <Card onClick={() => handleOpen(consejo)} sx={{ 
