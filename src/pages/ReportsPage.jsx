@@ -1,41 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import MultiProgress from "react-multi-progress";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import "../assets/globals.css";
 import "./styles/index.css";
-const list = [
-  {
-    value: (200 * 100) / 500,
-    color: "#A5F279",
-    percent: 200,
-    name: "Alimentacion",
-  },
-  {
-    value: (20 * 100) / 500,
-    color: "#966FD6",
-    percent: 20,
-    name: "Transporte",
-  },
-  {
-    value: (100 * 100) / 500,
-    color: "#779ECB",
-    percent: 100,
-    name: "Estudios",
-  },
-];
+import { GastosContext } from "../context/GastosContext";
+// const list = [
+//   {
+//     value: (200 * 100) / 500,
+//     color: "#A5F279",
+//     percent: 200,
+//     name: "Alimentacion",
+//   },
+//   {
+//     value: (20 * 100) / 500,
+//     color: "#966FD6",
+//     percent: 20,
+//     name: "Transporte",
+//   },
+//   {
+//     value: (100 * 100) / 500,
+//     color: "#779ECB",
+//     percent: 100,
+//     name: "Estudios",
+//   },
+// ];
 
-const initial = 500;
+// const initial = 500;
 
 export const ReportsPage = () => {
+  const { categoriesList, initial } = useContext(GastosContext);
+
   return (
     <div className="container">
       <div className="header-page">
-        <h1 className="h1-mod">Reportes</h1>
+        <h1 className="h1-mod">Reportes de hoy</h1>
       </div>
       <div className="reports-bar">
-        {list.map((element) => (
+        {categoriesList.map((element, index) => (
           <div
+            key={index}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -43,7 +47,7 @@ export const ReportsPage = () => {
             }}
           >
             <p className="thin-text">
-              {element.name}: {element.value}% gastado
+              {element.name}: {element.percent} Bs. gastado
             </p>
             <MultiProgress
               className="progress-bar"

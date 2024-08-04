@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MultiProgress from "react-multi-progress";
 
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -6,6 +6,7 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import "./styles/index.css";
 import "../assets/globals.css";
 import { AddGasto } from "../components/Gastos/AddGasto";
+import { GastosContext } from "../context/GastosContext";
 
 const list = [
   {
@@ -38,36 +39,36 @@ export const HomePage = () => {
 
   const [showAddGasto, setShowAddGasto] = useState(false);
 
-  const [categoriesList, setCategoryList] = useState([
-    {
-      value: 0,
-      color: "#A5F279",
-      percent: 0,
-      name: "Alimentacion",
-    },
-    {
-      value: 0,
-      color: "#966FD6",
-      percent: 0,
-      name: "Transporte",
-    },
-    {
-      value: 0,
-      color: "#779ECB",
-      percent: 0,
-      name: "Estudios",
-    },
-  ]);
+  const { categoriesList, setCategoryList, initial } =
+    useContext(GastosContext);
+
+  // const [categoriesList, setCategoryList] = useState([
+  //   {
+  //     value: 0,
+  //     color: "#A5F279",
+  //     percent: 0,
+  //     name: "Alimentacion",
+  //   },
+  //   {
+  //     value: 0,
+  //     color: "#966FD6",
+  //     percent: 0,
+  //     name: "Transporte",
+  //   },
+  //   {
+  //     value: 0,
+  //     color: "#779ECB",
+  //     percent: 0,
+  //     name: "Estudios",
+  //   },
+  // ]);
 
   useEffect(() => {
     const totalAux = categoriesList.reduce(
       (accumulator, item) => accumulator + item.percent,
       0
     );
-    console.log(
-      "🚀 ~ useEffect ~ (totalAux * 100) / initial:",
-      (totalAux * 100) / initial
-    );
+
     setTotalPercent((totalAux * 100) / initial);
     setTotal(totalAux);
   }, [categoriesList]);

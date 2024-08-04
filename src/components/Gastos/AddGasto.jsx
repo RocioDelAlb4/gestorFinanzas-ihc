@@ -55,8 +55,7 @@ export const AddGasto = ({
       const categoryFound = categoriesList.find(
         (element) => element.name === data.category
       );
-      console.log("🚀 ~ onSubmit ~ categoryFound:", categoryFound);
-      console.log("🚀 ~ onSubmit ~ categoryList:", categoriesList);
+
       if (categoryFound) {
         const newValue = categoryFound.value + (data.price * 100) / initial;
         const newPercent = categoryFound.percent + parseFloat(data.price);
@@ -72,6 +71,7 @@ export const AddGasto = ({
         );
 
         setCategoryList([...newList, updatedCategory]);
+        setData({ name: "", price: 0, category: "" });
       } else {
         setShowError(true);
       }
@@ -105,6 +105,7 @@ export const AddGasto = ({
                 id="outlined-basic"
                 label="Nombre del gasto"
                 variant="outlined"
+                value={data.name}
                 error={false}
                 onChange={(e) => setData({ ...data, name: e.target.value })}
               />
@@ -116,6 +117,7 @@ export const AddGasto = ({
                 label="Precio"
                 variant="outlined"
                 type="number"
+                value={data.price}
                 error={false}
                 onChange={(e) => setData({ ...data, price: e.target.value })}
               />
@@ -131,8 +133,9 @@ export const AddGasto = ({
                 label="Categoria"
                 onChange={handleChange}
               >
-                {categoriesList.map((element) => (
+                {categoriesList.map((element, index) => (
                   <MenuItem
+                    key={index}
                     value={element.name}
                     sx={{
                       display: "flex",
