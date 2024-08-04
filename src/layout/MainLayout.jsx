@@ -1,7 +1,6 @@
 import * as React from "react";
-
-import "./index.css";
-
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import "./index.css"; 
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -106,6 +105,10 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap component="div">
             Gestion de gastos
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          <IconButton color="inherit" sx={{ mr: 15 }}>
+            <NotificationsIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
