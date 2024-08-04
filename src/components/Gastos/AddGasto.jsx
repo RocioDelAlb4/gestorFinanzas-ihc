@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
+
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import Select from "@mui/material/Select";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -28,9 +30,29 @@ export const AddGasto = ({
   const [data, setData] = useState({ name: "", price: 0, category: "" });
 
   const [categorySelected, setCategorySelected] = useState("");
+
+  const [errorState, setErrorState] = useState("success");
+  const [message, setMessage] = useState(
+    "Se ha agregado el gasto exitosamente."
+  );
+
   const handleChange = (event) => {
     setCategorySelected(event.target.value);
     setData({ ...data, category: event.target.value });
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const onSubmit = () => {
@@ -50,13 +72,13 @@ export const AddGasto = ({
     if (
       data.name.trim() !== "" &&
       data.price !== 0 &&
-      data.category.trim() !== ""
+      categorySelected.trim() !== ""
     ) {
       const categoryFound = categoriesList.find(
         (element) => element.name === data.category
       );
 
-      if (categoryFound) {
+      if (categoryFound !== undefined) {
         const newValue = categoryFound.value + (data.price * 100) / initial;
         const newPercent = categoryFound.percent + parseFloat(data.price);
 
@@ -70,18 +92,40 @@ export const AddGasto = ({
           (element) => element.name !== data.category
         );
 
+        setErrorState("success");
+        setMessage("Se ha agregado el gasto");
+        setOpen(true);
+
         setCategoryList([...newList, updatedCategory]);
         setData({ name: "", price: 0, category: "" });
+        setCategorySelected("");
       } else {
-        setShowError(true);
+        setErrorState("error");
+        setMessage("Algo salió mal, por favor inténtalo otra vez. ");
+        setOpen(true);
       }
+    } else {
+      setErrorState("warning");
+      setMessage("Todos los campos deben estar llenos.");
+      setOpen(true);
     }
   };
 
   return (
     <>
+      <div>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity={errorState}
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {message}
+          </Alert>
+        </Snackbar>
+      </div>
       <div className="header-page">
-        {showError && <div>ya registrado</div>}
         <button className="btn-back" onClick={onClose}>
           <ArrowBackIcon fontSize="large" />
         </button>

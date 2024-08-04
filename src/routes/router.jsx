@@ -9,8 +9,14 @@ import {
   ReportsPage,
   SavingsPlanPage,
 } from "../pages/index.jsx";
+import { LoginPage } from "../pages/LoginPage.jsx";
 
 const router = [
+  {
+    path: "/",
+    element: <LoginPage />,
+    errorElement: <div>Not found</div>,
+  },
   {
     path: "/",
     element: <MainLayout />,
